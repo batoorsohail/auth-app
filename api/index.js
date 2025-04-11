@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import userRouter from './routes/user.js';
 import authRouter from './routes/auth.js';
+import cookieParser from 'cookie-parser';
 
 dotenv.config();
 
@@ -19,6 +20,8 @@ const app = express();
 app.use(cors());
 
 app.use(express.json());
+
+app.use(cookieParser());
 
 app.listen(3000, () => {
   console.log('Server listening on port 3000');
