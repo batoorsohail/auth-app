@@ -3,9 +3,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { updateUserStart, updateUserSuccess, updateUserFailure } from '../redux/user/userSlice';
 
 const Profile = () => {
-  const { currentUser } = useSelector(state => state.user);
-  const [ formData, setFormData ] = useState({});
   const dispatch = useDispatch();
+  const { currentUser, loading, error } = useSelector(state => state.user);
+  const [ formData, setFormData ] = useState({});
+  const [ updateSuccess, setUpdateSuccess ] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
@@ -29,6 +30,7 @@ const Profile = () => {
         return;
       }
       dispatch(updateUserSuccess(data));
+      setUpdateSuccess(true);
     } catch (error) {
       dispatch(updateUserFailure(error));
     }
@@ -62,12 +64,16 @@ const Profile = () => {
           className='bg-slate-100 rounded-lg p-3'
           onChange={handleChange}
         />
-        <button className='bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80'>update</button>
+        <button className='bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80'>
+          {loading ? 'Loading...' : 'Update'}
+        </button>
       </form>
       <div className="flex justify-between mt-5">
         <span className='text-red-700 cursor-pointer'>Delete Account</span>
         <span className='text-red-700 cursor-pointer'>Sign out</span>
       </div>
+      <p className='text-red-700 mt-5'>{error && 'Something went wrong!'}</p>
+      <p className='text-green-700 mt-5'>{updateSuccess && 'User updated successfully!'}</p>
     </section>
   )
 };
