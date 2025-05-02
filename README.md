@@ -24,7 +24,7 @@
   - [🙏 Acknowledgments ](#-acknowledgments-)
   - [📝 License ](#-license-)
 
-# 📖 WorkoutbBuddy <a name="about-project"></a>
+# 📖 Auth App <a name="about-project"></a>
 
 **Auth App** is a Full-stack website. The application allows users to sign up, log in, sign out, delete their accounts, and update their profiles.
 
