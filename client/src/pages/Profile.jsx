@@ -48,14 +48,14 @@ const Profile = () => {
       dispatch(deleteUserStart());
       const res = await fetch(`http://localhost:3000/api/user/delete/${currentUser._id}`, {
         method: 'DELETE',
-        credentials: 'include'
+        credentials: 'include',
       });
       const data = await res.json();
-      if (data.success == false) {
+      if (data.success === false) {
         dispatch(deleteUserFailure(data));
         return;
       }
-      dispatch(deleteUserSuccess);
+      dispatch(deleteUserSuccess());
     } catch (error) {
       dispatch(deleteUserFailure(error));
     }
