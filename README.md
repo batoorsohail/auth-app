@@ -26,7 +26,24 @@
 
 # 📖 Auth App <a name="about-project"></a>
 
-**Auth App** is a Full-stack website. The application allows users to sign up, log in, sign out, delete their accounts, and update their profiles.
+**Auth App** is a full-stack authentication web application built with React, Node.js, Express, Tailwind CSS, and Redux Toolkit. It provides essential user authentication features, including:
+
+🔑 Sign up with username, email, and password
+
+🔐 Sign in with email and password
+
+📤 Sign out securely
+
+🟢 Google OAuth 2.0 login integration
+
+🧠 Redux Toolkit for state management
+
+🎨 Tailwind CSS for responsive and clean UI design
+
+The backend is built with Express and MongoDB, handling user registration, login, and secure JWT-based session management with HTTP-only cookies.
+
+This project demonstrates core concepts of modern full-stack development, secure authentication workflows, and user session handling.
+
 
 ## 🛠 Built With <a name="built-with"></a>
 
