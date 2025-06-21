@@ -24,7 +24,7 @@ const Profile = () => {
     e.preventDefault();
     try {
       dispatch(updateUserStart());
-      const res = await fetch(`http://localhost:3000/api/user/update/${currentUser._id}`, {
+      const res = await fetch(`/api/user/update/${currentUser._id}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -47,7 +47,7 @@ const Profile = () => {
   const handleDeleteAccount = async () => {
     try {
       dispatch(deleteUserStart());
-      const res = await fetch(`http://localhost:3000/api/user/delete/${currentUser._id}`, {
+      const res = await fetch(`/api/user/delete/${currentUser._id}`, {
         method: 'DELETE',
         credentials: 'include',
       });
@@ -64,7 +64,7 @@ const Profile = () => {
 
   const handleSignOut = async () => {
     try {
-      await fetch('http://localhost:3000/api/auth/signout', {
+      await fetch('/api/auth/signout', {
         method: 'GET', // important!
         credentials: 'include', // VERY important to send the cookie!
       });
